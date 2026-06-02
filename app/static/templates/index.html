@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo → 3D Point Cloud</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">2D → 3D</div>
+        <div class="mode-selector">
+            <label>
+                Создайте 3D-модель из ваших фото! (минимум 3 фото)
+            </label>
+        </div>
+        <button class="btn" id="generateBtn" disabled>✨ Создать 3D-модель</button>
+    </div>
+    <div class="main">
+        <div id="viewer">
+            <div class="stats" id="stats" style="display:none;">
+                <span id="modeLabel">Облако точек</span> · <span id="pointCount">0</span> точек
+            </div>
+        </div>
+        <div class="side-panel">
+            <div class="drop-zone" id="dropZone">
+                <div style="font-size:2rem;">📁</div>
+                <div>Перетащите фото сюда</div>
+                <div style="font-size:0.75rem;color:var(--text-secondary);">или кликните для выбора</div>
+                <input type="file" id="fileInput" accept="image/*" multiple style="display:none;">
+            </div>
+            <div class="thumbnails" id="thumbnails"></div>
+            <div class="progress" id="progress">
+                <div id="progressText">Обработка...</div>
+                <div class="bar"><div class="bar-fill" id="progressFill"></div></div>
+            </div>
+            <button class="btn" id="clearBtn" style="background:#e74c3c; display:none;">🗑 Очистить</button>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>
